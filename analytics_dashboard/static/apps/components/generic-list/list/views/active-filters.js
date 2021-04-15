@@ -87,7 +87,7 @@ define(function(require) {
                 activeFiltersTitle: gettext('Filters In Use:'),
                 removeFilterMessage: gettext('Click to remove this filter'),
                 // Translators: "Clear" in this context means "remove all of the filters"
-                clearFiltersMessage: gettext('Clear'),
+                clearFiltersMessage: gettext('Clear all'),
                 clearFiltersSrMessage: gettext('Click to remove all filters')
             };
         },

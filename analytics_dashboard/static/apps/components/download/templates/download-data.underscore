@@ -3,7 +3,11 @@
         <a class="btn btn-default action-download-data" role="button"
            href="<%- downloadUrl %>" data-role="list-data-csv" data-track-type="click"
            data-track-event="edx.bi.csv.downloaded" data-track-category="<%- trackCategory %>">
-          <span class="ico fa fa-download" aria-hidden="true"></span> <%- downloadDataTitle %>
+           <div class="btn-content">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14">
+                <path class="a" d="M14.071,9.856l-4,4-4-4h2.5v-6h3v6Zm-4,4h-7.5v4h15v-4Zm6.5,2h-2v-1h2Z" transform="translate(-2.571 -3.856)"/>
+            </svg><%- downloadDataTitle %>
+           </div>
           <span class="sr-only"><%- downloadDataMessage %></span>
         </a>
     </div>

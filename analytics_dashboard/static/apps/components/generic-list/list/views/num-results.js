@@ -27,7 +27,7 @@ define(function(require) {
             return {
                 numResults: _.template(
                     // Translators: 'count' refers to the number of results contained in the table.
-                    gettext('Number of results: <%= count %>')
+                    gettext('Number of results: <span><%= count %></span>')
                 )({
                     count: Utils.localizeNumber(numResults, 0)
                 })

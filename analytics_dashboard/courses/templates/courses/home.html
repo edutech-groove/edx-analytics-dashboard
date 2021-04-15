@@ -25,7 +25,15 @@
                   data-track-target-lens="{{ item.lens }}" data-track-target-report="{{ item.report }}"
                   data-track-target-depth="{{ item.depth }}" data-track-menu-depth="lens"
                   data-track-link-name="{{ item.lens }}"><span class="link-label">
-                  {% if item.icon %}<span class="ico fa {{ item.icon }}" aria-hidden="true"></span>{% endif %}
+                  {% if item.lens == 'enrollment' %}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12.249" height="14" viewBox="0 0 12.249 14">
+                    <path d="M8.733,8.765,6.125,11.373,3.516,8.765A3.667,3.667,0,0,0,0,12.423v.262A1.313,1.313,0,0,0,1.312,14h9.625a1.313,1.313,0,0,0,1.312-1.312v-.262A3.667,3.667,0,0,0,8.733,8.765ZM.372,2.181l.175.041v1.6A.632.632,0,0,0,.522,4.912L.1,6.616C.049,6.8.153,7,.3,7H1.446c.15,0,.254-.194.208-.383l-.427-1.7A.632.632,0,0,0,1.2,3.819V2.38l1.8.435A3.493,3.493,0,1,0,9.625,4.374a3.437,3.437,0,0,0-.383-1.559l2.633-.634a.435.435,0,0,0,0-.861L6.669.062a2.349,2.349,0,0,0-1.085,0L.372,1.317a.437.437,0,0,0,0,.864Z" transform="translate(0 0.002)"/>
+                  </svg>
+                  {% elif item.lens == 'engagement' %}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                    <path d="M16.944,4.5H6.056A1.56,1.56,0,0,0,4.5,6.056V16.944A1.56,1.56,0,0,0,6.056,18.5H16.944A1.56,1.56,0,0,0,18.5,16.944V6.056A1.56,1.56,0,0,0,16.944,4.5ZM9.167,15.389H7.611V9.944H9.167Zm3.111,0H10.722V7.611h1.556Zm3.111,0H13.833V12.278h1.556Z" transform="translate(-4.5 -4.5)"/>
+                  </svg>
+                  {% endif %}
                 {{ item.translated_text }}
               </span></a>
           </li>
