@@ -35,7 +35,7 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
         table_items = [
             {
                 'name': 'Enrollment',
-                'icon': 'fa-child',
+                'icon': '<svg width="12.249" height="14"><use xlink:href="#graduate-icon"></use></svg>',
                 'heading': 'Who are my learners?',
                 'items': [
                     {
@@ -69,7 +69,7 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
 
         engagement = {
             'name': 'Engagement',
-            'icon': 'fa-bar-chart',
+            'icon': '<svg width="14" height="14"><use xlink:href="#chart-icon"></use></svg>',
             'heading': 'What are learners doing in my course?',
             'items': [
                 {

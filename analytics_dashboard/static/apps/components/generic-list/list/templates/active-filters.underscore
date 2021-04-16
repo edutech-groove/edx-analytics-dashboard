@@ -4,8 +4,8 @@
             <li class="filter filter-<%- filter.filterKey %>">
                 <button class="action-clear-filter btn btn-default" data-filter-key="<%- filter.filterKey %>" data-filter-name="<%- filter.name %>">
                     <%- filter.displayName %>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                        <path d="M934.479,609.644a6.018,6.018,0,1,1-1.763-4.238A5.778,5.778,0,0,1,934.479,609.644Zm-3.213-2.788a.343.343,0,0,0-.563.013l-2.2,2.2-1.975-2.2a.4.4,0,1,0-.575.55l1.975,2.2-2.225,2.25a.365.365,0,0,0,0,.55.327.327,0,0,0,.55,0l2.2-2.2,1.975,2.2a.4.4,0,1,0,.575-.55l-1.975-2.2,2.225-2.25A.343.343,0,0,0,931.266,606.856Z" transform="translate(-922.479 -603.644)"/>
+                    <svg width="12" height="12">
+                        <use xlink:href="#dismiss-chip-icon"></use>
                     </svg>
                     <span class="sr-only"><%- removeFilterMessage %></span>
                 </button>
@@ -15,9 +15,9 @@
         <li>
             <button class="action-clear-all-filters btn btn-link">
                 <%- clearFiltersMessage %>
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                    <path d="M934.479,609.644a6.018,6.018,0,1,1-1.763-4.238A5.778,5.778,0,0,1,934.479,609.644Zm-3.213-2.788a.343.343,0,0,0-.563.013l-2.2,2.2-1.975-2.2a.4.4,0,1,0-.575.55l1.975,2.2-2.225,2.25a.365.365,0,0,0,0,.55.327.327,0,0,0,.55,0l2.2-2.2,1.975,2.2a.4.4,0,1,0,.575-.55l-1.975-2.2,2.225-2.25A.343.343,0,0,0,931.266,606.856Z" transform="translate(-922.479 -603.644)"/>
-                </svg>
+                    <svg width="12" height="12">
+                        <use xlink:href="#dismiss-chip-icon"></use>
+                    </svg>
                 <span class="sr-only"><%- clearFiltersSrMessage %></span>
             </button>
         </li>

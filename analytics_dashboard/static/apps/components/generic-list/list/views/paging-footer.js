@@ -88,7 +88,8 @@ define(function(require) {
                     disabledText: gettext('disabled'),
                     isActive: this.$el.hasClass('active'),
                     // Translators: describes a pagination button as representing the current page
-                    activeText: gettext('active')
+                    activeText: gettext('active'),
+                    isButton: this.isRewind || this.isBack || this.isForward || this.isFastForward
                 }));
                 this.delegateEvents();
                 return this;

@@ -39,8 +39,8 @@ Partial: App-wide header element
             <a id="help" class="navbar-link " data-track-type="click" data-track-event="edx.bi.help.clicked"
                href="{{ help_url }}" target="_blank">
                <div class="btn-content">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                  <path d="M11,3a8,8,0,1,0,8,8A8,8,0,0,0,11,3Zm.8,13.6H10.2V15h1.6Zm1.656-6.2-.72.736A2.723,2.723,0,0,0,11.8,13.4H10.2V13a3.22,3.22,0,0,1,.936-2.264l.992-1.008A1.564,1.564,0,0,0,12.6,8.6a1.6,1.6,0,0,0-3.2,0H7.8a3.2,3.2,0,0,1,6.4,0A2.546,2.546,0,0,1,13.456,10.4Z" transform="translate(-3 -3)"/>
+                <svg width="16" height="16">
+                  <use xlink:href="#help-icon"></use>
                 </svg>
                 {% trans "Help" %} 
               </div></a>
@@ -63,13 +63,8 @@ Partial: App-wide header element
                     data-track-event="edx.bi.ui.menu.navigated" data-track-text="Logout"
                     data-track-url="{{ logout_url }}" data-track-target-scope="insights"
                     data-track-target-lens="logout" data-track-menu-depth="home" data-track-link-name="logout">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 14">
-                      <path
-                        d="M8 0a6.965 6.965 0 00-3.842 1.147.5.5 0 00.55.836 6 6 0 11-.329 9.8.502.502 0 00-.605.8A6.933 6.933 0 008 14 7 7 0 008 0z">
-                      </path>
-                      <path
-                        d="M1.707 7.5H9.5a.5.5 0 000-1H1.707l1.647-1.646a.5.5 0 00-.708-.708l-2.5 2.5a.518.518 0 00-.109.163.505.505 0 000 .382.518.518 0 00.109.163l2.5 2.5a.5.5 0 00.708-.708z">
-                      </path>
+                    <svg width="15" height="14">
+                        <use xlink:href="#logout-icon"></use>
                     </svg>
                     {% trans "Logout" %}</a>
               </li>

@@ -38,7 +38,7 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
 
     def assertPrimaryNav(self, nav, course_id):
         expected = {
-            'icon': 'fa-bar-chart',
+            'icon': '<svg width="14" height="14"><use xlink:href="#chart-icon"></use></svg>',
             'href': reverse('courses:engagement:content', kwargs={'course_id': course_id}),
             'text': 'Engagement',
             'translated_text': _('Engagement'),

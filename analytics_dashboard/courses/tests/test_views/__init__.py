@@ -214,7 +214,7 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
 
     def assertPrimaryNav(self, nav, course_id):
         expected = {
-            'icon': 'fa-child',
+            'icon': '<svg width="12.249" height="14"><use xlink:href="#graduate-icon"></use></svg>',
             'href': reverse('courses:enrollment:activity', kwargs={'course_id': course_id}),
             'text': 'Enrollment',
             'translated_text': _('Enrollment'),
