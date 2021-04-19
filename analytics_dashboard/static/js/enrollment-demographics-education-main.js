@@ -16,7 +16,7 @@ require(['load/init-page'], function(page) {
                     dataType: 'percent',
                     trends: [{
                         title: gettext('Percentage'),
-                        color: 'rgb(58, 162, 224)'
+                        color: '#FF9D00'
                     }],
                     x: {key: 'educationLevel'},
                     y: {key: 'percent'},
@@ -29,7 +29,7 @@ require(['load/init-page'], function(page) {
                     modelAttribute: 'education',
                     columns: [
                         {key: 'educationLevel', title: gettext('Educational Background')},
-                        {key: 'count', title: gettext('Number of Learners'), type: 'number', className: 'text-right'}
+                        {key: 'count', title: gettext('Number of Learners'), type: 'number', className: 'text-right strong'}
                     ],
                     sorting: ['-count']
                 });

@@ -22,10 +22,10 @@ define(function(require) {
             'aria-label': 'Pagination'
         },
         controls: {
-            rewind: {title: 'First', label: '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="9" viewBox="0 0 8 9"><g transform="translate(3 9) rotate(-90)"><path class="a" d="M4.5,0a.5.5,0,0,0-.354.147l-4,4a.5.5,0,0,0,.707.707L4.5,1.207,8.146,4.854a.5.5,0,0,0,.707-.707l-4-4A.5.5,0,0,0,4.5,0Z"/></g><g transform="translate(0 9) rotate(-90)"><path class="a" d="M4.5,0a.5.5,0,0,0-.354.147l-4,4a.5.5,0,0,0,.707.707L4.5,1.207,8.146,4.854a.5.5,0,0,0,.707-.707l-4-4A.5.5,0,0,0,4.5,0Z"/></g></svg>'},
-            back: {title: 'Previous', label: '<svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9"><g transform="translate(0 9) rotate(-90)"><path class="a" d="M4.5,0a.5.5,0,0,0-.354.147l-4,4a.5.5,0,0,0,.707.707L4.5,1.207,8.146,4.854a.5.5,0,0,0,.707-.707l-4-4A.5.5,0,0,0,4.5,0Z"/></g></svg>'},
-            forward: {title: 'Next', label: '<svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" viewBox="0 0 5 9"><g transform="translate(-390.547 424.663) rotate(-90)"><path class="a" d="M420.164,395.547a.5.5,0,0,1-.354-.147l-4-4a.5.5,0,1,1,.707-.707l3.647,3.647,3.646-3.647a.5.5,0,0,1,.707.707l-4,4A.5.5,0,0,1,420.164,395.547Z"/></g></svg>'},
-            fastForward: {title: 'Last', label: '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="9" viewBox="0 0 8 9"><g transform="translate(-563 -755)"><g transform="translate(172.453 1179.663) rotate(-90)"><path class="a" d="M420.164,395.547a.5.5,0,0,1-.354-.147l-4-4a.5.5,0,1,1,.707-.707l3.647,3.647,3.646-3.647a.5.5,0,0,1,.707.707l-4,4A.5.5,0,0,1,420.164,395.547Z"/></g><g transform="translate(175.453 1179.663) rotate(-90)"><path class="a" d="M420.164,395.547a.5.5,0,0,1-.354-.147l-4-4a.5.5,0,1,1,.707-.707l3.647,3.647,3.646-3.647a.5.5,0,0,1,.707.707l-4,4A.5.5,0,0,1,420.164,395.547Z"/></g></g></svg>'}
+            rewind: {title: 'First', label: '<svg width="8" height="9"><use xlink:href="#paging-first-icon"></use></svg>'},
+            back: {title: 'Previous', label: '<svg width="5" height="9"><use xlink:href="#paging-prev-icon"></use></svg>'},
+            forward: {title: 'Next', label: '<svg width="5" height="9"><use xlink:href="#paging-next-icon"></use></svg>'},
+            fastForward: {title: 'Last', label: '<svg width="8" height="9"><use xlink:href="#paging-last-icon"></use></svg>'}
         },
         initialize: function(options) {
             Backgrid.Extension.Paginator.prototype.initialize.call(this, options);

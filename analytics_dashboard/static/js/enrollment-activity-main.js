@@ -11,9 +11,9 @@ require(['load/init-page'], function(page) {
         'views/data-table-view',
         'views/stacked-trends-view'],
     function(_, DataTableView, StackedTrendsView) {
-        var colors = ['#4BB4FB', '#898C8F', '#009CD3', '#B72667', '#442255', '#1E8142'],
+        var colors = ['#4BB4FB', '#f04545', '#6760fa', '#38c976', '#ffa850', '#0094e3'],
             numericColumn = {
-                className: 'text-right',
+                className: 'text-right strong',
                 type: 'number'
             },
             settings = [

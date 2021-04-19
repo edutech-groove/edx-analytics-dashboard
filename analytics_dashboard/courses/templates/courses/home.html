@@ -30,15 +30,7 @@
                   data-track-target-lens="{{ item.lens }}" data-track-target-report="{{ item.report }}"
                   data-track-target-depth="{{ item.depth }}" data-track-menu-depth="lens"
                   data-track-link-name="{{ item.lens }}"><span class="link-label">
-                  {% if item.lens == 'enrollment' %}
-                  <svg width="12.249" height="14">
-                    <use xlink:href="#graduate-icon"></use>
-                  </svg>
-                  {% elif item.lens == 'engagement' %}
-                  <svg width="14" height="14">
-                    <use xlink:href="#chart-icon"></use>
-                  </svg>
-                  {% endif %}
+                  {{ item.icon | safe }}
                 {{ item.translated_text }}
               </span></a>
           </li>
@@ -58,39 +50,41 @@
           </header>
 
           <div class="course-home-table">
-            <div class="item name">
+            <div class="title-header">
               {{ column.translated_name }}
               <div class="icon">{{ column.icon | safe }}</div>
             </div>
 
-            {% for item in column.items %}
-              <div class="item">
-                {% captureas report_url %}{% url item.view course_id=course_id %}{{ item.fragment }}{% endcaptureas %}
-                <div class="title"><a href="{{ report_url }}"
-                  data-track-type="click" data-track-event="edx.bi.course.question_clicked"
-                  data-track-category="{{ column.name|lower }}" data-track-question="{{ item.title }}"
-                  data-track-url="{{ report_url }}" data-track-target-scope="{{ item.scope }}"
-                  data-track-target-lens="{{ item.lens }}" data-track-target-report="{{ item.report }}"
-                  data-track-target-depth="{{ item.depth }}">
-                  {{ item.translated_title }}
-                </a></div>
-                <div class="breadcrumbs">
-                  {{ column.icon | safe }}
-                  {% for breadcrumb in item.breadcrumbs %}
-                    {{ breadcrumb }}
-                    {% if not forloop.last %}
-                      <span class="ico fa fa-angle-right" aria-hidden="true"></span>
+            <div class="content">
+              {% for item in column.items %}
+                <div class="item">
+                  {% captureas report_url %}{% url item.view course_id=course_id %}{{ item.fragment }}{% endcaptureas %}
+                  <div class="title"><a href="{{ report_url }}"
+                    data-track-type="click" data-track-event="edx.bi.course.question_clicked"
+                    data-track-category="{{ column.name|lower }}" data-track-question="{{ item.title }}"
+                    data-track-url="{{ report_url }}" data-track-target-scope="{{ item.scope }}"
+                    data-track-target-lens="{{ item.lens }}" data-track-target-report="{{ item.report }}"
+                    data-track-target-depth="{{ item.depth }}">
+                    {{ item.translated_title }}
+                  </a></div>
+                  <div class="breadcrumbs">
+                    {{ column.icon | safe }}
+                    {% for breadcrumb in item.breadcrumbs %}
+                      {{ breadcrumb }}
+                      {% if not forloop.last %}
+                        <span class="ico fa fa-angle-right" aria-hidden="true"></span>
+                      {% endif %}
+                    {% endfor %}
+                    {% if item.format == "csv" %}
+                      {# Translators: This indicates that the adjacent link will trigger a CSV download. '{{download_icon}}' will be replaced with an icon. #}
+                      {% blocktrans with download_icon='<span class="ico fa fa-download" aria-hidden="true"></span>' %}
+                        ({{download_icon}} CSV Download)
+                      {% endblocktrans %}
                     {% endif %}
-                  {% endfor %}
-                  {% if item.format == "csv" %}
-                    {# Translators: This indicates that the adjacent link will trigger a CSV download. '{{download_icon}}' will be replaced with an icon. #}
-                    {% blocktrans with download_icon='<span class="ico fa fa-download" aria-hidden="true"></span>' %}
-                      ({{download_icon}} CSV Download)
-                    {% endblocktrans %}
-                  {% endif %}
+                  </div>
                 </div>
-              </div>
-            {% endfor %}
+              {% endfor %}
+            </div>
           </div>
         </div>
       {% endfor %}
