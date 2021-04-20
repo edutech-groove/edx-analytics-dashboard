@@ -20,10 +20,40 @@ Partial for displaying the lens navigation and the sections within the lenses.
             <svg width="15.167" height="14">
               <use xlink:href="#home-icon"></use>
             </svg>
-            {% trans "Course Home" %}
+            <span>{% trans "Course Home" %}</span>
           </a>
         </li>
-        <li class="dropdown">
+
+        {% for item in primary_nav_items %}
+          <li class="{% if primary_nav_item.name == item.name %}active{% endif %}">
+            {% captureas lens_url %}{{ item.href }}{{ item.fragment }}{% endcaptureas %}
+            <a href="{{ lens_url }}" data-track-type="click"
+                data-track-event="edx.bi.ui.menu.navigated"
+                data-track-text="{{ item.text }}" data-track-url="{{ lens_url }}"
+                data-track-target-scope="{{ item.scope }}" data-track-target-lens="{{ item.lens }}"
+                data-track-target-report="{{ item.report }}" data-track-target-depth="{{ item.depth }}"
+                data-track-menu-depth="lens" data-track-link-name="{{ item.lens }}">
+              <span class="link-label">
+                {{ item.icon | safe }} <span>{{ item.translated_text }}</span>
+                <svg width="8.148" height="8">
+                  <use xlink:href="#menu-arrow-icon"></use>
+                </svg>
+              </span>
+            </a>
+
+            {% if primary_nav_item.name == item.name %}
+            <ul>
+            {% include "submenu_navigation.html" with nav_items=secondary_nav_items lens=primary_nav_item.lens depth="report" %}
+          </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+
+
+
+
+
+        <!-- <li class="dropdown">
           <button class="dropdown-toggle navbar-link" data-toggle="dropdown" id="lensPrimaryMenu"
               aria-controls="lensDropdownMenu">
             <span class="link-label">
@@ -55,9 +85,9 @@ Partial for displaying the lens navigation and the sections within the lenses.
               {% endfor %}
             </ul>
           </div>
-        </li>
+        </li> -->
 
-        {% include "submenu_navigation.html" with nav_items=secondary_nav_items lens=primary_nav_item.lens depth="report" %}
+        
       </ul>
     </div>
   </nav>

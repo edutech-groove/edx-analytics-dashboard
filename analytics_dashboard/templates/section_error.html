@@ -1,10 +1,10 @@
 {% load i18n %}
 {% load dashboard_extras %}
 
-<div class="alert alert-error" role="alert" aria-labelledby="alert-error-title" tabindex="-1">
-    <span class="icon alert-icon fa fa-warning" aria-hidden="true"></span>
+<div class="section-error" role="alert" aria-labelledby="alert-error-title" tabindex="-1">
+    <span class="icon fa fa-ban" aria-hidden="true"></span>
 
-    <div class="alert-message">
+    <div class="message">
         <h3 class="alert-title" id="alert-error-title">
             {% if content_type == 'chart' %}
                 {% blocktrans %}We are unable to load this chart.{% endblocktrans %}

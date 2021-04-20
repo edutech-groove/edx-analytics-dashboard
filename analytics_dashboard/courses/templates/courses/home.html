@@ -11,12 +11,12 @@
   <nav class="navbar navbar-default lens-nav" role="navigation" aria-label="{% trans "Application" %}">
     <div class="grid-container">
       <ul class="nav navbar-nav">
-        <li class="active nav-section">
-          <div class="course-label">
+        <li class="nav-section">
+          <div class="active course-label">
             <svg width="15.167" height="14">
               <use xlink:href="#home-icon"></use>
             </svg>
-            {% trans "Course Home" %}
+            <span>{% trans "Course Home" %}</span>
           </div>
           <span class="sr-only">({% trans "Active" %})</span>
         </li>
@@ -31,7 +31,10 @@
                   data-track-target-depth="{{ item.depth }}" data-track-menu-depth="lens"
                   data-track-link-name="{{ item.lens }}"><span class="link-label">
                   {{ item.icon | safe }}
-                {{ item.translated_text }}
+                <span>{{ item.translated_text }}</span>
+                <svg width="8.148" height="8">
+                  <use xlink:href="#menu-arrow-icon"></use>
+                </svg>
               </span></a>
           </li>
         {% endfor %}

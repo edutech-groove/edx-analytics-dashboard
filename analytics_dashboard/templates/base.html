@@ -80,10 +80,18 @@ Base template pages.
           buttonTextAlignment: 'left',
           includeSelectAllOption: true,
           maxHeight: 300,
+          onChange: function(option, checked, select) {
+            var selectElem = option.closest('.multiselect-native-select')[0].querySelectorAll('select')[0];
+            var changeEvent = new Event('change');
+            var blurEvent = new Event('blur');
+            selectElem.dispatchEvent(changeEvent);
+            selectElem.dispatchEvent(blurEvent);
+          }
         });
       } 
     });
   }
+
   $(document).ready(function() {
     initMultiSelect();
     $("body").bind("DOMSubtreeModified", function(e, b) {
