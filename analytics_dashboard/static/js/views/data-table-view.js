@@ -227,10 +227,11 @@ define(['datatables-bootstrap3-plugin/media/js/datatables-bootstrap3', 'jquery',
                     $parent, $table, dtConfig, dtSorting;
                 AttributeListenerView.prototype.render.call(this);
 
-                $parent = $('<div/>', {class: 'table-responsive'}).appendTo(self.$el);
+                $parent = $('<div/>', {class: 'table-wrapper'}).appendTo(self.$el);
                 $table = $('<table/>', {class: 'table table-striped'}).appendTo($parent);
                 dtConfig = {
                     paging: true,
+                    pagingType: "full_numbers",
                     info: false,
                     filter: false,
                     data: self.model.get(self.options.modelAttribute),
@@ -240,11 +241,19 @@ define(['datatables-bootstrap3-plugin/media/js/datatables-bootstrap3', 'jquery',
 
                     // this positions the "length changing" control to the bottom using bootstrap styling
                     // more information at http://datatables.net/examples/basic_init/dom.html
-                    dom: '<<t>><"row"<"col col-12 sm-col-12 md-col-6"l>' +
-                         '<"col col-12 sm-col-12 md-col-6"p>>',
+                    dom: '<<t>><"table-footer"<"length-changing"l>' +
+                         '<"pagination"p>>',
 
                     // Disable auto-width as it causes the date column to wrap unnecessarily.
-                    autoWidth: false
+                    autoWidth: false,
+                    language: {
+                        paginate: {
+                          first: '<svg width="8" height="9"><use xlink:href="#paging-first-icon"></use></svg>',
+                          previous: '<svg width="5" height="9"><use xlink:href="#paging-prev-icon"></use></svg>',
+                          next: '<svg width="5" height="9"><use xlink:href="#paging-next-icon"></use></svg>',
+                          last: '<svg width="8" height="9"><use xlink:href="#paging-last-icon"></use></svg>'
+                        }
+                      }
                 };
 
                 dtSorting = self.buildSorting();

@@ -290,7 +290,7 @@ class CourseNavBarMixin(object):
                 'name': 'enrollment',
                 'text': ugettext_noop('Enrollment'),
                 'view': 'courses:enrollment:activity',
-                'icon': 'fa-child',
+                'icon': '<svg width="12.249" height="14"><use xlink:href="#graduate-icon"></use></svg>',
                 'fragment': '',
                 'scope': 'course',
                 'lens': 'enrollment',
@@ -301,7 +301,7 @@ class CourseNavBarMixin(object):
                 'name': 'engagement',
                 'text': ugettext_noop('Engagement'),
                 'view': 'courses:engagement:content',
-                'icon': 'fa-bar-chart',
+                'icon': '<svg width="14" height="14"><use xlink:href="#chart-icon"></use></svg>',
                 'fragment': '',
                 'scope': 'course',
                 'lens': 'engagement',
@@ -399,7 +399,7 @@ class CourseNavBarMixin(object):
             navs = [i for i in primary_nav_items if i['name'] == self.active_primary_nav_item]
             if navs:
                 primary_nav_item = navs[0]
-                primary_nav_items.remove(primary_nav_item)
+                # primary_nav_items.remove(primary_nav_item)
 
         context.update({
             'primary_nav_item': primary_nav_item,
@@ -490,7 +490,7 @@ class CourseHome(CourseTemplateWithNavView):
 
         enrollment_items = {
             'name': _('Enrollment'),
-            'icon': 'fa-child',
+            'icon': '<svg width="12.249" height="14"><use xlink:href="#graduate-icon"></use></svg>',
             'heading': _('Who are my learners?'),
             'items': [
                 {
@@ -549,7 +549,7 @@ class CourseHome(CourseTemplateWithNavView):
 
         engagement_items = {
             'name': _('Engagement'),
-            'icon': 'fa-bar-chart',
+            'icon': '<svg width="14" height="14"><use xlink:href="#chart-icon"></use></svg>',
             'heading': _('What are learners doing in my course?'),
             'items': [
                 {

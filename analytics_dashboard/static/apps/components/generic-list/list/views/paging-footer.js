@@ -22,10 +22,10 @@ define(function(require) {
             'aria-label': 'Pagination'
         },
         controls: {
-            rewind: {title: 'First', label: '<span class="fa fa-fast-backward" aria-hidden="true"></span>'},
-            back: {title: 'Previous', label: '<span class="fa fa-step-backward" aria-hidden="true"></span>'},
-            forward: {title: 'Next', label: '<span class="fa fa-step-forward" aria-hidden="true"></span>'},
-            fastForward: {title: 'Last', label: '<span class="fa fa-fast-forward" aria-hidden="true"></span>'}
+            rewind: {title: 'First', label: '<svg width="8" height="9"><use xlink:href="#paging-first-icon"></use></svg>'},
+            back: {title: 'Previous', label: '<svg width="5" height="9"><use xlink:href="#paging-prev-icon"></use></svg>'},
+            forward: {title: 'Next', label: '<svg width="5" height="9"><use xlink:href="#paging-next-icon"></use></svg>'},
+            fastForward: {title: 'Last', label: '<svg width="8" height="9"><use xlink:href="#paging-last-icon"></use></svg>'}
         },
         initialize: function(options) {
             Backgrid.Extension.Paginator.prototype.initialize.call(this, options);
@@ -88,7 +88,8 @@ define(function(require) {
                     disabledText: gettext('disabled'),
                     isActive: this.$el.hasClass('active'),
                     // Translators: describes a pagination button as representing the current page
-                    activeText: gettext('active')
+                    activeText: gettext('active'),
+                    isButton: this.isRewind || this.isBack || this.isForward || this.isFastForward
                 }));
                 this.delegateEvents();
                 return this;

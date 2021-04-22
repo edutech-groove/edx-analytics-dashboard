@@ -11,8 +11,13 @@
   <nav class="navbar navbar-default lens-nav" role="navigation" aria-label="{% trans "Application" %}">
     <div class="grid-container">
       <ul class="nav navbar-nav">
-        <li class="active nav-section">
-          <div class="course-label">{% trans "Course Home" %}</div>
+        <li class="nav-section">
+          <div class="active course-label">
+            <svg width="15.167" height="14">
+              <use xlink:href="#home-icon"></use>
+            </svg>
+            <span>{% trans "Course Home" %}</span>
+          </div>
           <span class="sr-only">({% trans "Active" %})</span>
         </li>
 
@@ -25,8 +30,11 @@
                   data-track-target-lens="{{ item.lens }}" data-track-target-report="{{ item.report }}"
                   data-track-target-depth="{{ item.depth }}" data-track-menu-depth="lens"
                   data-track-link-name="{{ item.lens }}"><span class="link-label">
-                  {% if item.icon %}<span class="ico fa {{ item.icon }}" aria-hidden="true"></span>{% endif %}
-                {{ item.translated_text }}
+                  {{ item.icon | safe }}
+                <span>{{ item.translated_text }}</span>
+                <svg width="8.148" height="8">
+                  <use xlink:href="#menu-arrow-icon"></use>
+                </svg>
               </span></a>
           </li>
         {% endfor %}
@@ -36,50 +44,54 @@
 {% endblock %}
 
 {% block child_content %}
-  <div class="course-home-table-outer">
-    {% for column in table_items %}
-      <div class="course-home-section">
-        <header class="heading-outer">
-          <div class="heading">{{ column.heading }}</div>
-        </header>
+  <div class="insights-container">
+    <div class="course-home-table-outer row sm">
+      {% for column in table_items %}
+        <div class="course-home-section col-12 md-col-6">
+          <header class="heading-outer">
+            <div class="heading">{{ column.heading }}</div>
+          </header>
 
-        <div class="course-home-table">
-          <div class="item name">
-            <span class="ico fa {{ column.icon }}" aria-hidden="true"></span> {{ column.translated_name }}
-          </div>
-
-          {% for item in column.items %}
-            <div class="item">
-              {% captureas report_url %}{% url item.view course_id=course_id %}{{ item.fragment }}{% endcaptureas %}
-              <div class="title"><a href="{{ report_url }}"
-                data-track-type="click" data-track-event="edx.bi.course.question_clicked"
-                data-track-category="{{ column.name|lower }}" data-track-question="{{ item.title }}"
-                data-track-url="{{ report_url }}" data-track-target-scope="{{ item.scope }}"
-                data-track-target-lens="{{ item.lens }}" data-track-target-report="{{ item.report }}"
-                data-track-target-depth="{{ item.depth }}">
-                {{ item.translated_title }}
-              </a></div>
-              <div class="breadcrumbs">
-                <span class="ico fa {{ column.icon }}" aria-hidden="true"></span>
-                <span class="ico fa fa-caret-right" aria-hidden="true"></span>
-                {% for breadcrumb in item.breadcrumbs %}
-                  {{ breadcrumb }}
-                  {% if not forloop.last %}
-                    <span class="ico fa fa-caret-right" aria-hidden="true"></span>
-                  {% endif %}
-                {% endfor %}
-                {% if item.format == "csv" %}
-                  {# Translators: This indicates that the adjacent link will trigger a CSV download. '{{download_icon}}' will be replaced with an icon. #}
-                  {% blocktrans with download_icon='<span class="ico fa fa-download" aria-hidden="true"></span>' %}
-                    ({{download_icon}} CSV Download)
-                  {% endblocktrans %}
-                {% endif %}
-              </div>
+          <div class="course-home-table">
+            <div class="title-header">
+              {{ column.translated_name }}
+              <div class="icon">{{ column.icon | safe }}</div>
             </div>
-          {% endfor %}
+
+            <div class="content">
+              {% for item in column.items %}
+                <div class="item">
+                  {% captureas report_url %}{% url item.view course_id=course_id %}{{ item.fragment }}{% endcaptureas %}
+                  <div class="title"><a href="{{ report_url }}"
+                    data-track-type="click" data-track-event="edx.bi.course.question_clicked"
+                    data-track-category="{{ column.name|lower }}" data-track-question="{{ item.title }}"
+                    data-track-url="{{ report_url }}" data-track-target-scope="{{ item.scope }}"
+                    data-track-target-lens="{{ item.lens }}" data-track-target-report="{{ item.report }}"
+                    data-track-target-depth="{{ item.depth }}">
+                    {{ item.translated_title }}
+                  </a></div>
+                  <div class="breadcrumbs">
+                    {{ column.icon | safe }}
+                    {% for breadcrumb in item.breadcrumbs %}
+                      {{ breadcrumb }}
+                      {% if not forloop.last %}
+                        <span class="ico fa fa-angle-right" aria-hidden="true"></span>
+                      {% endif %}
+                    {% endfor %}
+                    {% if item.format == "csv" %}
+                      {# Translators: This indicates that the adjacent link will trigger a CSV download. '{{download_icon}}' will be replaced with an icon. #}
+                      {% blocktrans with download_icon='<span class="ico fa fa-download" aria-hidden="true"></span>' %}
+                        ({{download_icon}} CSV Download)
+                      {% endblocktrans %}
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
         </div>
-      </div>
-    {% endfor %}
+      {% endfor %}
+    </div>
   </div>
 
   {% if course_overview or external_course_tools %}

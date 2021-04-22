@@ -1,6 +1,8 @@
-{% if update_message %}
-  <div class="data-update-message">{{ update_message }}</div>
-{% endif %}
-{% if data_information_message %}
-  <div class="data-information-message">{{ data_information_message }}</div>
-{% endif %}
+<div class="insights-container message-wrapper">
+  {% if update_message %}
+    <div class="data-update-message">{{ update_message }}</div>
+  {% endif %}
+  {% if data_information_message %}
+    <div class="data-information-message">{{ data_information_message }}</div>
+  {% endif %}
+</div>

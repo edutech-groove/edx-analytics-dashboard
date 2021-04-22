@@ -11,10 +11,10 @@
 
 
 {% block summary-cards %}
-<section class="view-section row">
-    <div class="section-heading bordered">
+<section class="view-section insights-container across-all-courses">
+    <div class="section-heading">
         <h3 class="section-title">
-            {% blocktrans %}Across all your courses:{% endblocktrans %}
+            {% blocktrans %}Across all your courses{% endblocktrans %}
         </h3>
     </div>
 
@@ -71,8 +71,8 @@
 
 {% block content %}
   {% block child_content %}
-    <section class="view-section">
-      <div class="course-list-app-container grid-container">
+    <section class="view-section insights-container courses-list">
+      <div class="course-list-app-container">
         {% include "loading.html" %}
       </div>
     </section>

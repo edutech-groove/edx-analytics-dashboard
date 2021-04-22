@@ -68,14 +68,14 @@ define(function(require) {
             // text and icon.
             sortDirectionMap = {
                 // Translators: "sort ascending" describes the current sort state to the user.
-                ascending: {screenReaderText: gettext('sort ascending'), iconClass: 'fa fa-sort-asc'},
+                ascending: {screenReaderText: gettext('sort ascending'), iconClass: 'fa fa-caret-up'},
                 // Translators: "sort descending" describes the current sort state to the user.
-                descending: {screenReaderText: gettext('sort descending'), iconClass: 'fa fa-sort-desc'},
+                descending: {screenReaderText: gettext('sort descending'), iconClass: 'fa fa-caret-down'},
                 // eslint-disable-next-line max-len
                 // Translators: "click to sort" tells the user that they can click this link to sort by the current field.
-                neutral: {screenReaderText: gettext('click to sort'), iconClass: 'fa fa-sort'}
+                neutral: {screenReaderText: gettext('click to sort'), iconClass: 'hidden'}
             };
-            sortIcon.removeClass('fa-sort fa-sort-asc fa-sort-desc');
+            sortIcon.removeClass('hidden fa-caret-up fa-caret-down');
             sortIcon.addClass(sortDirectionMap[directionOrNeutral].iconClass);
             this.$('.sr-sorting-text').text(' ' + sortDirectionMap[directionOrNeutral].screenReaderText);
         }

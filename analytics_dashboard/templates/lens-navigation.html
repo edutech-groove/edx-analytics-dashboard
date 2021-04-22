@@ -17,15 +17,48 @@ Partial for displaying the lens navigation and the sections within the lenses.
               data-track-target-scope="course" data-track-target-lens="home" data-track-menu-depth="home"
               data-track-link-name="course_home">
             {#  Translators: This refers to the homepage of a course. #}
-            {% trans "Course Home" %}
+            <svg width="15.167" height="14">
+              <use xlink:href="#home-icon"></use>
+            </svg>
+            <span>{% trans "Course Home" %}</span>
           </a>
         </li>
-        <li class="dropdown">
+
+        {% for item in primary_nav_items %}
+          <li class="{% if primary_nav_item.name == item.name %}active{% endif %}">
+            {% captureas lens_url %}{{ item.href }}{{ item.fragment }}{% endcaptureas %}
+            <a href="{{ lens_url }}" data-track-type="click"
+                data-track-event="edx.bi.ui.menu.navigated"
+                data-track-text="{{ item.text }}" data-track-url="{{ lens_url }}"
+                data-track-target-scope="{{ item.scope }}" data-track-target-lens="{{ item.lens }}"
+                data-track-target-report="{{ item.report }}" data-track-target-depth="{{ item.depth }}"
+                data-track-menu-depth="lens" data-track-link-name="{{ item.lens }}">
+              <span class="link-label">
+                {{ item.icon | safe }} <span>{{ item.translated_text }}</span>
+                <svg width="8.148" height="8">
+                  <use xlink:href="#menu-arrow-icon"></use>
+                </svg>
+              </span>
+            </a>
+
+            {% if primary_nav_item.name == item.name %}
+            <ul>
+            {% include "submenu_navigation.html" with nav_items=secondary_nav_items lens=primary_nav_item.lens depth="report" %}
+          </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+
+
+
+
+
+        <!-- <li class="dropdown">
           <button class="dropdown-toggle navbar-link" data-toggle="dropdown" id="lensPrimaryMenu"
               aria-controls="lensDropdownMenu">
             <span class="link-label">
               <span class="sr-only">{% trans "Navigation Menu." %}</span>
-              <span class="ico fa {{ primary_nav_item.icon }}" aria-hidden="true"></span>
+              {{ primary_nav_item.icon | safe }}
               {{ primary_nav_item.translated_text }}
               {# Translators: This refers to the active tab/navigation item. #}
               <span class="sr-only">({% trans "Active" %})</span>
@@ -33,26 +66,28 @@ Partial for displaying the lens navigation and the sections within the lenses.
             </span>
           </button>
 
-          <ul id="lensDropdownMenu" class="dropdown-menu" aria-labelledby="lensPrimaryMenu" tabindex="-1">
-            {% for item in primary_nav_items %}
-              <li>
-                {% captureas lens_url %}{{ item.href }}{{ item.fragment }}{% endcaptureas %}
-                <a href="{{ lens_url }}" data-track-type="click"
-                    data-track-event="edx.bi.ui.menu.navigated"
-                    data-track-text="{{ item.text }}" data-track-url="{{ lens_url }}"
-                    data-track-target-scope="{{ item.scope }}" data-track-target-lens="{{ item.lens }}"
-                    data-track-target-report="{{ item.report }}" data-track-target-depth="{{ item.depth }}"
-                    data-track-menu-depth="lens" data-track-link-name="{{ item.lens }}">
-                  <span class="link-label">
-                    <span class="ico fa {{ item.icon }}" aria-hidden="true"></span> {{ item.translated_text }}
-                  </span>
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-        </li>
+          <div id="lensDropdownMenu" class="dropdown-menu">
+            <ul aria-labelledby="lensPrimaryMenu" tabindex="-1">
+              {% for item in primary_nav_items %}
+                <li>
+                  {% captureas lens_url %}{{ item.href }}{{ item.fragment }}{% endcaptureas %}
+                  <a href="{{ lens_url }}" data-track-type="click"
+                      data-track-event="edx.bi.ui.menu.navigated"
+                      data-track-text="{{ item.text }}" data-track-url="{{ lens_url }}"
+                      data-track-target-scope="{{ item.scope }}" data-track-target-lens="{{ item.lens }}"
+                      data-track-target-report="{{ item.report }}" data-track-target-depth="{{ item.depth }}"
+                      data-track-menu-depth="lens" data-track-link-name="{{ item.lens }}">
+                    <span class="link-label">
+                      {{ item.icon | safe }} {{ item.translated_text }}
+                    </span>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li> -->
 
-        {% include "submenu_navigation.html" with nav_items=secondary_nav_items lens=primary_nav_item.lens depth="report" %}
+        
       </ul>
     </div>
   </nav>

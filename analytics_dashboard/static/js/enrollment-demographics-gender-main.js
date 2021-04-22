@@ -15,7 +15,7 @@ require(['load/init-page'], function(page) {
                     dataType: 'percent',
                     trends: [{
                         title: gettext('Percentage'),
-                        color: 'rgb(58, 162, 224)'
+                        color: '#38C976'
                     }],
                     x: {key: 'gender'},
                     y: {key: 'percent'},
@@ -29,11 +29,11 @@ require(['load/init-page'], function(page) {
                     modelAttribute: 'genderTrend',
                     columns: [
                         {key: 'date', title: gettext('Date'), type: 'date'},
-                        {key: 'total', title: gettext('Current Enrollment'), type: 'number', className: 'text-right'},
-                        {key: 'female', title: gettext('Female'), type: 'number', className: 'text-right'},
-                        {key: 'male', title: gettext('Male'), type: 'number', className: 'text-right'},
-                        {key: 'other', title: gettext('Other'), type: 'number', className: 'text-right'},
-                        {key: 'unknown', title: gettext('Not Reported'), type: 'number', className: 'text-right'}
+                        {key: 'total', title: gettext('Current Enrollment'), type: 'number', className: 'text-right strong'},
+                        {key: 'female', title: gettext('Female'), type: 'number', className: 'text-right strong'},
+                        {key: 'male', title: gettext('Male'), type: 'number', className: 'text-right strong'},
+                        {key: 'other', title: gettext('Other'), type: 'number', className: 'text-right strong'},
+                        {key: 'unknown', title: gettext('Not Reported'), type: 'number', className: 'text-right strong'}
                     ],
                     sorting: ['-date']
                 });

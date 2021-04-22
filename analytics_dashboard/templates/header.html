@@ -7,7 +7,7 @@ Partial: App-wide header element
 
 {% include "_skip_link.html" with content_id="content" %}
 <header class="navbar navbar-default" id="nav">
-  <div class="grid-container">
+  <div class="navbar-container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
         <span class="sr-only">{% trans 'Toggle navigation' %}</span>
@@ -37,29 +37,39 @@ Partial: App-wide header element
         {% if help_url %}
           <li>
             <a id="help" class="navbar-link " data-track-type="click" data-track-event="edx.bi.help.clicked"
-               href="{{ help_url }}" target="_blank">{% trans "Help" %}</a>
+               href="{{ help_url }}" target="_blank">
+               <div class="btn-content">
+                <svg width="16" height="16">
+                  <use xlink:href="#help-icon"></use>
+                </svg>
+                {% trans "Help" %} 
+              </div></a>
           </li>
         {% endif %}
         <li class="dropdown">
           <button class="dropdown-toggle active-user navbar-link" data-toggle="dropdown"
              aria-controls="userDropdownMenu" id="userMenu">
             <span class="sr-only">{% trans "Menu for" %}</span>
-            <span class="ico-user fa fa-graduation-cap" aria-hidden="true"></span>
             <span class="active-user-name">{{ request.user.username }}</span>
             <span class="ico ico-indicator fa fa-caret-down" aria-hidden="true"></span>
           </button>
 
-          <ul id="userDropdownMenu" class="dropdown-menu active-user-nav" tabindex="-1"
-              aria-labelledby="userMenu">
-            <li>
-              {% captureas logout_url %}{% url 'logout' %}{% endcaptureas %}
-              <a class="active-user-nav-logout" href="{{ logout_url }}" data-track-type="click"
-                  data-track-event="edx.bi.ui.menu.navigated" data-track-text="Logout"
-                  data-track-url="{{ logout_url }}" data-track-target-scope="insights"
-                  data-track-target-lens="logout" data-track-menu-depth="home" data-track-link-name="logout">
-                  {% trans "Logout" %}</a>
-            </li>
-          </ul>
+          <div id="userDropdownMenu" class="dropdown-menu active-user-nav" tabindex="-1"
+          aria-labelledby="userMenu">
+            <ul>
+              <li>
+                {% captureas logout_url %}{% url 'logout' %}{% endcaptureas %}
+                <a class="active-user-nav-logout" href="{{ logout_url }}" data-track-type="click"
+                    data-track-event="edx.bi.ui.menu.navigated" data-track-text="Logout"
+                    data-track-url="{{ logout_url }}" data-track-target-scope="insights"
+                    data-track-target-lens="logout" data-track-menu-depth="home" data-track-link-name="logout">
+                    <svg width="15" height="14">
+                        <use xlink:href="#logout-icon"></use>
+                    </svg>
+                    {% trans "Logout" %}</a>
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     </div>

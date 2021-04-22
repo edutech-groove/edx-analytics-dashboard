@@ -24,9 +24,9 @@ require(['load/init-page'], function(page) {
                     modelAttribute: 'enrollmentByCountry',
                     columns: [
                         {key: 'countryName', title: gettext('Country or Region')},
-                        {key: 'percent', title: gettext('Percent'), className: 'text-right', type: 'percent'},
+                        {key: 'percent', title: gettext('Percent'), className: 'text-right strong', type: 'percent'},
                         // Translators: The noun count (e.g. number of learners)
-                        {key: 'count', title: gettext('Current Enrollment'), className: 'text-right', type: 'number'}
+                        {key: 'count', title: gettext('Current Enrollment'), className: 'text-right strong', type: 'number'}
                     ],
                     sorting: ['-count']
                 });

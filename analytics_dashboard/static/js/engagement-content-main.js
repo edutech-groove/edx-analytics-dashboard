@@ -19,35 +19,35 @@ require(['load/init-page'], function(page) {
                 key: 'any',
                 title: gettext('Active Learners'),
                 color: '#8DA0CB',
-                className: 'text-right',
+                className: 'text-right strong',
                 type: 'number'
             },
             {
                 key: 'played_video',
                 title: gettext('Watched a Video'),
                 color: '#66C2A5',
-                className: 'text-right',
+                className: 'text-right strong',
                 type: 'number'
             },
             {
                 key: 'attempted_problem',
                 title: gettext('Tried a Problem'),
                 color: '#FC8D62',
-                className: 'text-right',
+                className: 'text-right strong',
                 type: 'number'
             },
             {
                 key: 'posted_forum',
                 title: gettext('Participated in Discussions'),
                 color: '#E78AC3',
-                className: 'text-right',
+                className: 'text-right strong',
                 type: 'number'
             },
             {
                 key: 'active_percent',
                 title: gettext('Percent of Current Learners'),
                 color: '#FFFFFF',
-                className: 'text-right',
+                className: 'text-right strong',
                 type: 'percent'
             }
             ],

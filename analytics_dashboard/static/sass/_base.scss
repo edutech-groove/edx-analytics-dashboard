@@ -21,7 +21,7 @@ html {
   // also affects other sizing, like making the width of the grid narrower.
   // When we import the PL via sass, we should reconsider setting the global font size like this in favor of setting the
   // grid width directly by setting a config variable.
-  font-size: 14px;
+  font-size: 16px;
 }
 
 // Fix bug in Safari: remove outline around main element with tabindex="-1".
@@ -519,11 +519,52 @@ dl {
 
 // set insights to only be constrained at very large screen sizes
 .grid-container {
-  max-width: 1800px;
+  max-width: unset;
 }
 
 // without setting the margins to 0, there will be a tiny bit of spacing at the sides
-.grid-manual .row {
-  margin-right: 0;
-  margin-left: 0;
+// .grid-manual .row {
+//   margin-right: 0;
+//   margin-left: 0;
+// }
+
+
+@font-face {
+  font-family: 'Plumpfull Black';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/static/fonts/Plumpfull.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/static/fonts/NunitoSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/static/fonts/NunitoSans-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/static/fonts/NunitoSans-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/static/fonts/NunitoSans-ExtraBold.woff') format('woff');
 }
