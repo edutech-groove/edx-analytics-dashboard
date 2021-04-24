@@ -128,6 +128,7 @@ class LandingView(TemplateView):
         context['research_url'] = settings.RESEARCH_URL
         context['open_source_url'] = settings.OPEN_SOURCE_URL
         context['show_research'] = settings.SHOW_LANDING_RESEARCH and settings.RESEARCH_URL
+        context['lms_theme_url'] = settings.LMS_THEME_URL
         audience_message_column_width = 6
         if context['show_research']:
             audience_message_column_width = 4

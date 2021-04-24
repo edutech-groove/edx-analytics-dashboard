@@ -27,6 +27,17 @@ Base template pages.
     <link rel="stylesheet" href="{{ css_file.publicPath }}" type="text/css">
     {% endfor %}
 
+    {% comment %}
+    The stylesheets in case landing page - guest user
+    {% endcomment %}
+    
+    {% if lms_theme_url %}
+    <link rel="stylesheet" href="{% settings_value 'LMS_THEME_URL' %}/css/insights.css" type="text/css">
+    {% endif %}
+
+    {% comment %}
+    The stylesheets in case logged in user
+    {% endcomment %}
     %if settings.LMS_THEME_URL:
     <link rel="stylesheet" href="{% settings_value 'LMS_THEME_URL' %}/css/insights.css" type="text/css">
     %endif
