@@ -8,4 +8,5 @@ def common(_request):
         'platform_name': settings.PLATFORM_NAME,
         'application_name': settings.APPLICATION_NAME,
         'footer_links': settings.FOOTER_LINKS,
+        'lms_theme_url': settings.LMS_THEME_URL,
     }
