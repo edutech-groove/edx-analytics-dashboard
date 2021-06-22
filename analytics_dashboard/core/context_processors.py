@@ -9,4 +9,5 @@ def common(_request):
         'application_name': settings.APPLICATION_NAME,
         'footer_links': settings.FOOTER_LINKS,
         'lms_theme_url': settings.LMS_THEME_URL,
+        'enhenced_theme': settings.ENHENCED_THEME,
     }
