@@ -13,7 +13,7 @@ Base template pages.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {% if lms_theme_url %}
+    {% if enhenced_theme %}
     <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}fec/assets/images/favicon.ico"/>
     {% else %}
     <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}images/favicon.ico"/>
@@ -31,8 +31,8 @@ Base template pages.
     {% endcomment %}
     {% block stylesheets %}
 
-    {% if lms_theme_url %}
-    <link rel="stylesheet" href="{% settings_value 'LMS_THEME_URL' %}/css/insights.css" type="text/css">
+    {% if enhenced_theme %}
+    <link rel="stylesheet" href="{{STATIC_URL}}fec/insightsldashboard.css" type="text/css">
     {% endif %}
 
     {% get_files 'application-main' 'css' as common_css %}
