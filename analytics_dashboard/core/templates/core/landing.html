@@ -9,25 +9,19 @@
 {% block title %}{% settings_value 'FULL_APPLICATION_NAME' %}{% endblock title %}
 
 {% block stylesheets %}
-    {% if enhenced_theme %}
     <link rel="stylesheet" href="/static/fec/insightslanding.css" type="text/css">
     <script type="application/json" id="edt-page-metadata">
     {{ enhenced_theme|escape_json}}
     </script>
-    {% endif %}
 {% endblock stylesheets %}
 
 {% block body %}
     <body class="landing">
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root"></div>
-
-        {% if enhenced_theme %}
-        <script type="text/javascript" src="/static/fec/insightslanding.min.js"></script>
-        {% endif %}
     </body>
 {% endblock body %}
 
 {% block javascript %}
-  
+<script type="text/javascript" src="/static/fec/insightslanding.min.js"></script>
 {% endblock javascript %}
