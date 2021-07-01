@@ -31,7 +31,8 @@ Base template pages.
     {% endcomment %}
 
     {% block stylesheets %}
-    <link rel="stylesheet" href="{{STATIC_URL}}fec/insightsdashboard.css" type="text/css">
+    <link rel="stylesheet" href="/static/fec/plugins/bootstrap-multiselect.min.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/static/fec/insightsdashboard.css" type="text/css">
 
     {% get_files 'application-main' 'css' as common_css %}
     {% for css_file in common_css %}
@@ -56,7 +57,7 @@ Base template pages.
   {% include 'svgIcon.html' %}
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-  <script type="text/javascript" src="{{STATIC_URL}}fec/plugins/bootstrap-multiselect.min.js"></script>
+  <script type="text/javascript" src="/static/fec/plugins/bootstrap-multiselect.min.js"></script>
 {% endblock javascript %}
 
 </html>
