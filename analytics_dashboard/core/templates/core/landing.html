@@ -4,12 +4,12 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load dashboard_extras %}
-
+{% load fec %}
 
 {% block title %}{% settings_value 'FULL_APPLICATION_NAME' %}{% endblock title %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="/static/fec/insightslanding.css" type="text/css">
+    <link rel="stylesheet" href="{{ 'insightslanding.css'|fec_url }}" type="text/css">
     <script type="application/json" id="edt-page-metadata">
     {{ enhenced_theme|escape_json}}
     </script>
@@ -23,5 +23,5 @@
 {% endblock body %}
 
 {% block javascript %}
-<script type="text/javascript" src="/static/fec/insightslanding.min.js"></script>
+<script type="text/javascript" src="{{ 'insightslanding.min.js'|fec_url }}"></script>
 {% endblock javascript %}
