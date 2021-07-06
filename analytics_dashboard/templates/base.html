@@ -14,11 +14,7 @@ Base template pages.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {% if enhenced_theme %}
-    <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}fec/assets/images/favicon.ico"/>
-    {% else %}
-    <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}images/favicon.ico"/>
-    {% endif %}
+    <link rel="shortcut icon" type="image/png" href="{{ 'assets/images/favicon.ico'|fec_url }}"/>
 
     <title>{% block title %}| {% settings_value 'FULL_APPLICATION_NAME' %}{% endblock title %}</title>
 
