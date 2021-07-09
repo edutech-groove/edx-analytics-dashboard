@@ -14,7 +14,7 @@ Base template pages.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" type="image/png" href="{{ 'assets/images/favicon.ico'|fec_url }}"/>
+    <link rel="shortcut icon" type="image/png" href="{{ 'images/favicon.ico'|fec_url }}"/>
 
     <title>{% block title %}| {% settings_value 'FULL_APPLICATION_NAME' %}{% endblock title %}</title>
 
@@ -29,7 +29,7 @@ Base template pages.
 
     {% block stylesheets %}
     <link rel="stylesheet" href="{{ 'plugins/bootstrap-multiselect.min.css'|fec_url }}" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ 'insightsdashboard.css'|fec_url }}" type="text/css">
+    <link rel="stylesheet" href="{{ 'stylesheets/insightsdashboard.min.css'|fec_url }}" type="text/css">
 
     {% get_files 'application-main' 'css' as common_css %}
     {% for css_file in common_css %}
