@@ -36,6 +36,9 @@ define([
             var self = this;
             if (self.isDataAvailable()) {
                 self.render();
+                if (typeof window.CustomizeFunctionsHook !== 'undefined' && window.CustomizeFunctionsHook['dropdown']) {
+                    window.CustomizeFunctionsHook['dropdown']();
+                }
             }
         },
 
