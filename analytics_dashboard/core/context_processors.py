@@ -8,5 +8,5 @@ def common(_request):
         'platform_name': settings.PLATFORM_NAME,
         'application_name': settings.APPLICATION_NAME,
         'footer_links': settings.FOOTER_LINKS,
-        'enhenced_theme': settings.ENHENCED_THEME,
+        'enhenced_theme': settings.ENHENCED_THEME if hasattr(settings, 'ENHENCED_THEME') else {},
     }
