@@ -1,55 +1,44 @@
-{% extends "base_dashboard.html" %}
+{% comment %}
+Base error pages.
+{% endcomment %}
 
-{% load i18n %}
-{% load dashboard_extras %}
+{% load fec %}
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/png" href="{{ 'images/favicon.ico'|fec_url }}"/>
 
-{% block view-name %}view-system{% endblock view-name %}
+    <title>{% block title %}| {% settings_value 'FULL_APPLICATION_NAME' %}{% endblock title %}</title>
 
-{# These are intentionally left blank. #}
-{% block header %}{% endblock %}
-{% block lens_navigation %}{% endblock %}
-{% block announcements %}{% endblock %}
-{% block footer %}{% endblock %}
+    {% comment %}
+    The stylesheets can be either overriden or augmented here.  Make sure to use the block.super if you're
+    adding additional stylesheets in your page when extending the base.
+    {% endcomment %}
 
-{% block content-outer %}
-  <div class="site-wrapper">
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{ 'plugins/bootstrap-multiselect.min.css'|fec_url }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ 'stylesheets/insightsdashboard.min.css'|fec_url }}" type="text/css">
+    {% endblock %}
 
-    <div class="site-wrapper-inner">
+    <script type="application/json" id="edt-page-metadata">
+    {{ enhenced_theme|escape_json}}
+    </script>
 
-      <div class="cover-container">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-        <div class="masthead clearfix">
-          <div class="inner">
-            {% include 'brand.html' with class_prefix='masthead' %}
-          </div>
-        </div>
-
-        <div class="inner cover">
-          <h1 class="cover-heading">
-            <span class="error-code">{% block error-code %}{% endblock %}</span>
-            <span class="error-title">{% block error-title %}{% endblock %}</span>
-          </h1>
-
-          <p class="lead error-copy">
-              {% block error-copy %}
-              If you continue to see this error, use the link below to contact our support team.
-              {% endblock error-copy %}
-          </p>
-
-          <p class="lead">
-            {% block buttons %}
-              <a href="mailto:{% settings_value 'SUPPORT_EMAIL' %}" class="btn btn-lg btn-primary" data-role="support-email"
-                 title="{% trans 'Use our support tool to ask questions or share feedback.' %}">
-                <span class="ico fa fa-life-ring" aria-hidden="true"></span>
-                {% captureas platform_name %}{% settings_value "PLATFORM_NAME" %}{% endcaptureas %}
-
-                {# Translators: This intention here is that a user clicks a button to contact a support group (e.g. edX Support, or MITx Support). Reorder the placeholder as you see fit. #}
-                {% blocktrans %}Contact {{ platform_name }} Support{% endblocktrans %}
-              </a>
-            {% endblock %}
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-{% endblock %}
+</head>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  
+  {% block javascript %}
+  {% endblock javascript %}
+</body>
+</html>

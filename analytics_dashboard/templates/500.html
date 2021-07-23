@@ -1,12 +1,11 @@
 {% extends "base-error.html" %}
 
-{% load i18n %}
+{% load fec %}
 
-{% block title %}{% trans "An Error Occurred" %} {{ block.super }}{% endblock title %}
-
-{% block error-code %}500{% endblock %}
-{% block error-title %}{% trans "An Error Occurred" %}{% endblock %}
-{% block error-copy %}
-  {% trans "Our servers weren't able to complete your request. Please try again by refreshing this page or retracing your steps." %}
-  {{ block.super }}
+{% block stylesheets %}
+<link href="{{ 'stylesheets/internalserver.min.css'|fec_url }}" rel="stylesheet">
 {% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{{ 'javascripts/internalserver.min.js'|fec_url }}"></script>
+{% endblock javascript %}
