@@ -2,7 +2,9 @@
 Base error pages.
 {% endcomment %}
 
+{% load dashboard_extras %}
 {% load fec %}
+
 <!DOCTYPE html>
 <!--[if lte IE 9]><html class="no-js lt-ie10" lang="en"><![endif]-->
 <!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
@@ -20,8 +22,6 @@ Base error pages.
     {% endcomment %}
 
     {% block stylesheets %}
-    <link rel="stylesheet" href="{{ 'plugins/bootstrap-multiselect.min.css'|fec_url }}" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ 'stylesheets/insightsdashboard.min.css'|fec_url }}" type="text/css">
     {% endblock %}
 
     <script type="application/json" id="edt-page-metadata">
