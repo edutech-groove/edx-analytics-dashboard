@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load dashboard_extras %}
+{% load fec %}
 
 {#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
 <footer class="footer" aria-label="{% trans "Application" %}">
@@ -20,25 +21,11 @@
     </div>
   </div>
   {% endif %}
-  <div class="legal">
-    <div class="insights-container">
-      <div class="legal-container">
-        <div class="text-left">
-          {% if footer_links %}
-          {% for link in footer_links %}
-          <a href="{{ link.url }}" target="_blank" {% if link.data_role %}data-role="{{ link.data_role }}" {% endif %}>
-            {% trans link.text %}
-          </a>
-          {% endfor %}
-          {% endif %}
-        </div>
-        <div class="text-right">
-          {% captureas current_year %}{% now "Y" %}{% endcaptureas %}
-          {# Translators: The © symbol appears directly before this line. #}
-          <p class="copyright">© {% blocktrans %} {{ current_year }} {{ platform_name }}, except where noted, all rights
-            reserved. {% endblocktrans %}</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  
+  <link href="{{ 'stylesheets/edutechfooter.min.css'|fec_url }}" rel="stylesheet">
+  <script type="application/json" id="edt-page-metadata">
+  {{ enhenced_theme|escape_json}}
+  </script>
+  <div id="edt-footer"></div>
+  <script type="text/javascript" src="{{ 'javascripts/edutechfooter.min.js'|fec_url }}"></script>
 </footer>
