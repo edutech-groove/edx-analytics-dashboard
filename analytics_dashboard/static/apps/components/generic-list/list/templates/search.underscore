@@ -12,7 +12,7 @@
     <span class="input-group-btn">
         <button type="button" class="search btn btn-primary">
             <svg width="18.414" height="18.414">
-                <use xlink:href="#magnifying-glass-icon"></use>
+                <use xlink:href="#magnifying-glass"></use>
             </svg>
             <span class="sr-only"><%- executeSearchText %></span>
         </button>
